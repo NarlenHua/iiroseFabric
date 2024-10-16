@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "options": {
+    "cwd": "${workspaceRoot}"
+  },
+  "tasks": [
+    {
+      "label": "iirose_build",
+      "type": "shell",
+      "command": "npm run build"
+    },
+    {
+      "label": "add_description",
+      "type": "shell",
+      // "command": "node .//addDescription.js"
+      "command": "tsx .//script//addDescription.ts"
+    },
+    {
+      "label": "generate_script",
+      "type": "shell",
+      "dependsOn": [
+        "iirose_build",
+        "add_description"
+      ],
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    }
+  ]
+}
